@@ -5,7 +5,7 @@ import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.types.BooleanType
 
 
-object CheckDataTest {
+object DataChecker {
   case class House(id: String, name: String, price: Double, bedrooms: Double, bathrooms: Double, room_type: String, square_feet: Double, host_is_superhost: Boolean, state: String, cancellation_policy: String, security_deposit: Double, cleaning_fee: Double, extra_people: Double, number_of_reviews: Int, price_per_bedroom: Double, review_scores_rating: Double, instant_bookable: Boolean)
 
   def main(args: Array[String]): Unit = {

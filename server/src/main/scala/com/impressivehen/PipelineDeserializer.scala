@@ -6,7 +6,7 @@ import ml.combust.mleap.runtime.MleapSupport.MleapBundleFileOps
 import ml.combust.mleap.runtime.frame.{DefaultLeapFrame, Row, Transformer}
 import resource.managed
 
-object PipelineDeserializerTest {
+object PipelineDeserializer {
   def main(args: Array[String]): Unit = {
     val mleapPipeline = loadModel("/tmp/uber-spark-randomForest-pipeline.zip")
 
