@@ -1,5 +1,5 @@
 val sparkVersion = "3.4.0"
-// https://github.com/combust/mleap
+// version: https://github.com/combust/mleap
 val mleapVersion = "0.23.0"
 
 val settings: Seq[Def.Setting[_]] = Seq(
@@ -19,23 +19,28 @@ lazy val root = (project in file("."))
 
 lazy val model = (project in file("model"))
   .settings(settings)
-  .settings(libraryDependencies ++= modelDependencies)
+  .settings(libraryDependencies ++= modelDependencies ++ commonDependencies)
 
 lazy val server = (project in file("server"))
   .settings(settings)
-  .settings(libraryDependencies ++= serverDependencies)
+  .settings(libraryDependencies ++= serverDependencies ++ commonDependencies)
 
 lazy val modelDependencies = Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "org.apache.spark" %% "spark-mllib" % sparkVersion,
   "org.apache.spark" %% "spark-catalyst" % sparkVersion,
-  "ml.combust.mleap" %% "mleap-runtime" % mleapVersion,
-  "ml.combust.mleap" %% "mleap-spark" % mleapVersion,
+//  "ml.combust.mleap" %% "mleap-runtime" % mleapVersion,
+//  "ml.combust.mleap" %% "mleap-spark" % mleapVersion,
   "org.scalanlp" %% "breeze-natives" % "2.1.0"
 )
 
 lazy val serverDependencies = Seq(
+//  "ml.combust.mleap" %% "mleap-runtime" % mleapVersion,
+//  "ml.combust.mleap" %% "mleap-spark" % mleapVersion,
+)
+
+lazy val commonDependencies = Seq(
   "ml.combust.mleap" %% "mleap-runtime" % mleapVersion,
   "ml.combust.mleap" %% "mleap-spark" % mleapVersion,
 )
